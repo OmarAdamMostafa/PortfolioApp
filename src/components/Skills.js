@@ -1,12 +1,11 @@
+import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Container, Row, Col } from "react-bootstrap";
-import meter1 from '../assets/img/meter1.svg'
-import meter2 from '../assets/img/meter2.svg'
-import meter3 from '../assets/img/meter3.svg'
+import {skills} from '../utils/constants'
 import colorSharp from '../assets/img/color-sharp.png'
 
-export const Skills = () => {
+const Skills = () => {
     const responsive = {
     superLargeDesktop: {
         // the naming can be any, depends on you.
@@ -34,30 +33,31 @@ export const Skills = () => {
                     <Col>
                         <div className="skill-bx">
                             <h2>Skills</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptates ipsum voluptatibus sit distinctio ab accusantium iste tenetur similique labore?</p>
+                            <p>
+                                Capable of
+                                writing highly-detailed reports. Knowledgeable in HTML, CSS and
+                                JavaScript (React). Also well educated in Data Structures & Algorithms, 
+                                C++, Java, Python, MongoDB, and Object-Oriented Programming.
+                            </p>
                             <Carousel responsive={responsive} infinite={true} className='skill-slider'>
-                                <div className="item">
-                                    <img src={meter2} alt='image'/>
-                                    <h5>HTML & CSS</h5>
-                                </div>
-                                <div className="item">
-                                    <img src={meter3} alt='image'/>
-                                    <h5>Javascript</h5>
-                                </div>
-                                <div className="item">
-                                    <img src={meter1} alt='image'/>
-                                    <h5>React JS</h5>
-                                </div>
-                                <div className="item">
-                                    <img src={meter2} alt='image'/>
-                                    <h5>Data Structures & Algorithms</h5>
-                                </div>
+                                {
+                                    skills.map((skill)=>{
+                                        return (
+                                            <div className="item">
+                                                <img src={skill.img} alt={skill.text}/>
+                                                <h5>{skill.text}</h5>
+                                            </div>
+                                        )
+                                    })
+                                }
                             </Carousel>
                         </div>
                     </Col>
                 </Row>
             </Container>
-            <img src={colorSharp} className='background-image-left'/>
+            <img src={colorSharp} alt='ColorSharp' className='background-image-left'/>
         </section>
     )
 }
+
+export default Skills;

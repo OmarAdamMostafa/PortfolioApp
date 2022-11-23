@@ -1,16 +1,15 @@
+import React from "react";
 import { useEffect, useState } from 'react';
 import {Navbar, Container, Nav} from 'react-bootstrap'
 import logo from '../assets/img/logo.svg'
-import navIcon1 from '../assets/img/nav-icon1.svg'
-import navIcon2 from '../assets/img/nav-icon2.svg'
-import navIcon3 from '../assets/img/nav-icon3.svg'
+import {links, socials} from '../utils/constants'
 // import { HashLink } from 'react-router-hash-link';
-
-export const NavBar = () =>{
+const NavBar = () =>{
     const [activeLink, setActiveLink] = useState('home')
     const [scrolled, setScrolled] = useState(false)
 
     useEffect(()=>{
+        // eslint-disable-next-line
         const onScroll = () =>{
             if(window.scrollY > 50){
                 setScrolled(true)
@@ -40,23 +39,30 @@ export const NavBar = () =>{
             </Navbar.Toggle>
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ms-auto">
-                <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
-                <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
-                <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
+                    {
+                        links.map((link)=>{
+                            return <Nav.Link key={link.id} href={link.url} className={activeLink === link.text ? 'active navbar-link' : 'navbar-link'} 
+                            onClick={() => onUpdateActiveLink(link.text)}>{link.text}</Nav.Link>
+                        })
+                    }
                 </Nav>
                 <span className="navbar-text">
-                <div className="social-icon">
-                    <a href="#"><img src={navIcon1} alt="" /></a>
-                    <a href="#"><img src={navIcon2} alt="" /></a>
-                    <a href="#"><img src={navIcon3} alt="" /></a>
-                </div>
-                {/* <HashLink to='#connect'>
+                    <div className="social-icon">
+                        {
+                            socials.map((social)=>{
+                                return <a href={social.url}><img src={social.img} alt={social.name}/></a>
+                            })
+                        }
+                    </div>
+                    {/* <HashLink to='#connect'>
+                        <button className="vvd"><span>Let’s Connect</span></button>
+                    </HashLink> */}
                     <button className="vvd"><span>Let’s Connect</span></button>
-                </HashLink> */}
-                <button className="vvd"><span>Let’s Connect</span></button>
                 </span>
             </Navbar.Collapse>
             </Container>
         </Navbar>
     );
 }
+
+export default NavBar;

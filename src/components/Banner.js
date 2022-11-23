@@ -1,19 +1,20 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import {ArrowRightCircle} from 'react-bootstrap-icons';
+import { ArrowRightCircle } from 'react-bootstrap-icons';
+import { titles } from '../utils/constants'
 import headerImage from '../assets/img/header-img.svg'
 
-export const Banner = () => {
+const Banner = () => {
     const [loopNum, setLoopNum] = useState(0);
     const [isDeleting,setIsDeleting] = useState(false);
-    const toRotate = ['Web Developer', 'Web Designer', 'UI/UX Designer'];
     const [currentText, setCurrentText] = useState('');
     const [delta,setDelta] = useState(300 - Math.random() * 100) // How fast one letter comes after the other
     const period = 2000; // How long between each toRotate array value
 
     const tick = () => {
-        let i = loopNum % toRotate.length;
-        let fullText = toRotate[i];
+        let i = loopNum % titles.length;
+        let fullText = titles[i];
         let updatedText = isDeleting ? fullText.substring(0, currentText.length - 1) : fullText.substring(0, currentText.length + 1)
 
         setCurrentText(updatedText)
@@ -38,6 +39,7 @@ export const Banner = () => {
             tick()
         }, delta)
         return () => {clearInterval(ticker)}
+        // eslint-disable-next-line
     },[currentText])
 
     return (
@@ -52,7 +54,11 @@ export const Banner = () => {
                                {currentText}
                             </span>
                         </h1>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias natus ut voluptatibus tempora! Iste quidem sit iure, voluptatum error impedit laboriosam ex, possimus voluptates ullam, corrupti nam blanditiis sequi inventore?</p>
+                        <p> 
+                            Hard working and fast learning individual that has good
+                            communication skills, a sense of humor and willingness to learn
+                            new things. Motivated to leave his mark on the IT industry. 
+                        </p>
                         <button onClick={()=>console.log()}>
                             Let's Connect <ArrowRightCircle size={25}/>
                         </button>
@@ -65,3 +71,5 @@ export const Banner = () => {
         </section>
     );
 }
+
+export default Banner;
