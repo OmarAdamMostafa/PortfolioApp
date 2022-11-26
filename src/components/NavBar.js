@@ -50,7 +50,7 @@ const NavBar = () =>{
                     <div className="social-icon">
                         {
                             socials.map((social)=>{
-                                return <a href={social.url}><img src={social.img} alt={social.name}/></a>
+                                return <a key={social.id} href={social.url}><img src={social.img} alt={social.name}/></a>
                             })
                         }
                     </div>

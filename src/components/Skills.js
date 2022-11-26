@@ -43,7 +43,7 @@ const Skills = () => {
                                 {
                                     skills.map((skill)=>{
                                         return (
-                                            <div className="item">
+                                            <div className="item" key={skill.id}>
                                                 <img src={skill.img} alt={skill.text}/>
                                                 <h5>{skill.text}</h5>
                                             </div>
