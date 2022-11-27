@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import {Navbar, Container, Nav} from 'react-bootstrap'
 import logo from '../assets/img/logo.svg'
 import {links, socials} from '../utils/constants'
-// import { HashLink } from 'react-router-hash-link';
 const NavBar = () =>{
     const [activeLink, setActiveLink] = useState('home')
     const [scrolled, setScrolled] = useState(false)
