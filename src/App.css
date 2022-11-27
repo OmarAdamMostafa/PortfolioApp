@@ -396,6 +396,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /* Projects CSS */
 .project {
   padding: 80px 0;
+  margin: auto auto 30px auto;
   position: relative;
   background-color: black;
 }
@@ -404,6 +405,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-size: 45px;
   font-weight: 700;
   text-align: center;
+  margin: 14px auto 40px auto;
 }
 
 .project p {
@@ -513,6 +515,15 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .proj-imgbx:hover .proj-txtx {
   top: 50%;
   opacity: 1;
+}
+
+.proj-txtx a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.proj-txtx a:hover {
+  color: rgb(187, 187, 187);
 }
 
 .proj-txtx h4 {

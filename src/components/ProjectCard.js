@@ -6,9 +6,11 @@ const ProjectCard = ({name, description, html_url}) =>{
     return (
     <Col size={12} sm={6} md={4}>
       <div className="proj-imgbx">
-        <img src={projImg} />
+        <img src={projImg} alt='project img'/>
         <div className="proj-txtx">
-          <h5>{name}</h5>
+          <a href={html_url} target="_blank" rel="noreferrer">
+            <h5>{name}</h5>
+          </a>
           <span>{description}</span>
         </div>
       </div>

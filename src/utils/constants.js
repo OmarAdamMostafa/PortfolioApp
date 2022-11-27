@@ -10,17 +10,17 @@ export const links = [
   {
     id: 1,
     text: 'Home',
-    url: '/',
+    url: '#home',
   },
   {
     id: 2,
     text: 'Skills',
-    url: '/',
+    url: '#skills',
   },
   {
     id: 3,
     text: 'Projects',
-    url: '/',
+    url: '#projects',
   },
 ]
 
