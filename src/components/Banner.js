@@ -59,7 +59,7 @@ const Banner = () => {
                                 communication skills, a sense of humor and willingness to learn
                                 new things. Motivated to leave his mark on the IT industry. 
                             </p>
-                            <button onClick={()=>console.log()}>
+                            <button onClick={()=>window.location.href ='#contact'}>
                                 Let's Connect <ArrowRightCircle size={25}/>
                             </button>
                     </Col>

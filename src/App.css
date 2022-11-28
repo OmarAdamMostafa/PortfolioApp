@@ -314,6 +314,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   align-items: center;
 }
 
+.banner .txt {
+  text-decoration: none;
+}
+
 .banner button svg {
   font-size: 25px;
   margin-left: 10px;
@@ -671,6 +675,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-weight: 500;
   letter-spacing: 0.5px;
   border-radius: 18px;
+}
+
+.new-email-bx button:hover {
+  background: linear-gradient(90.21deg, #a7618b -5.91%, #7766c0 111.58%);
 }
 
 .footer img {

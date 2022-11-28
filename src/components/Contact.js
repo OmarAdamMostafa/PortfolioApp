@@ -11,7 +11,7 @@ const Contact = () =>{
         message: ''
     }
     const [formDetails, setFormDetails] = useState(formInitialDetails);
-    const [buttonText, setButtonText] = useState('Send');
+    const buttonText = 'Send';
 
     const onFormUpdate = (category, value) => {
         setFormDetails({

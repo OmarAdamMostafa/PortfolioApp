@@ -63,7 +63,7 @@ const Projects = () =>{
                                                 )
                                             })
                                         }
-                                        <button><span>View More</span></button>
+                                        <button onClick={()=>window.location.href ='https://github.com/OmarAdamMostafa?tab=repositories'}><span>View More</span></button>
                                     </Row>
                                 </Tab.Pane>
                             </TabContent>
