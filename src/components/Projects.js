@@ -1,14 +1,19 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Col, Container, Row, TabContainer, TabContent, Tab, Nav } from 'react-bootstrap';
+import { Col, Container, Row, TabContainer, TabContent, Tab} from 'react-bootstrap';
 import ProjectCard from './ProjectCard';
 import colorSharp2 from '../assets/img/color-sharp2.png'
+import projImg1 from '../assets/img/eCommPic.png'
+import projImg2 from '../assets/img/githubUsersApp.png'
+import projImg3 from '../assets/img/myCocktail.png'
+//import defaultImg from '../assets/img/project-img1.png'
+
 const Projects = () =>{
 
     const url = 'https://api.github.com/users/OmarAdamMostafa/repos'
     const [projects, setProjects] = useState([])
     const [loading, setLoading] = useState(true)
-    const [half, setHalf] = useState(0)
+    const projImgs = [{id: 562817491,img: projImg1}, {id: 559186228,img: projImg2}, {id: 557862119,img: projImg3}]
 
     const getUserProjects = async() =>{
         setLoading(true);
@@ -18,12 +23,19 @@ const Projects = () =>{
             if(allProjects){
                 const newProjects = allProjects.map((project)=>{
                     const {id, name, description, html_url} = project;
-                    return {id, name ,description, html_url}
+                    // let img = projImgs.map((projImg)=>{
+                    //     if (id === projImg.id){
+                    //         return projImg.img
+                    //     }
+                    // })
+                    let img = projImgs.filter((projImg)=> id === projImg.id)
+                    return {id, name ,description, html_url, img: img[0]}
             })  
+            console.log(newProjects)
             setProjects(newProjects);
-            setHalf(newProjects.length/2)
             }
             setLoading(false);
+            
         }
         catch (error) {
             setLoading(false);
@@ -57,6 +69,7 @@ const Projects = () =>{
                                                 )
                                             })
                                         }
+                                        <button><span>View More</span></button>
                                     </Row>
                                 </Tab.Pane>
                             </TabContent>
