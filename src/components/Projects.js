@@ -6,6 +6,7 @@ import colorSharp2 from '../assets/img/color-sharp2.png'
 import projImg1 from '../assets/img/eCommPic.png'
 import projImg2 from '../assets/img/githubUsersApp.png'
 import projImg3 from '../assets/img/myCocktail.png'
+import defaultImg from '../assets/img/project-img1.png';
 
 const Projects = () =>{
 
@@ -23,6 +24,9 @@ const Projects = () =>{
                 const newProjects = allProjects.map((project)=>{
                     const {id, name, description, html_url} = project;
                     let img = projImgs.filter((projImg)=> id === projImg.id)
+                    if(img.length === 0){
+                        return {id, name ,description, html_url, img: defaultImg}
+                    }
                     return {id, name ,description, html_url, img: img[0]}
             })  
             console.log(newProjects)
