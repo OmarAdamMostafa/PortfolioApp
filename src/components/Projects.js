@@ -6,7 +6,7 @@ import colorSharp2 from '../assets/img/color-sharp2.png'
 import projImg1 from '../assets/img/eCommPic.png'
 import projImg2 from '../assets/img/githubUsersApp.png'
 import projImg3 from '../assets/img/myCocktail.png'
-import defaultImg from '../assets/img/project-img1.png';
+import defaultImg from '../assets/img/comingSoon.jpg';
 
 const Projects = () =>{
 
